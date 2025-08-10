@@ -1,15 +1,15 @@
 {
   "name": "hello-world-web-app",
   "version": "1.0.0",
-  "description": "A simple 'Hello World' web application with Node.js and Express.",
+  "description": "A simple client-server Hello World web application.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {},
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
