@@ -1,0 +1,12 @@
+{
+  "name": "hello-world-backend",
+  "version": "1.0.0",
+  "description": "Simple Hello World Node.js Express backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
