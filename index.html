@@ -3,55 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h1 {
-            color: #4CAF50;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Hello World Client</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello from Python Flask!</h1>
-        <p id="message">Click the button to see a message:</p>
-        <button onclick="showMessage()">Show Message</button>
-    </div>
+    <h1>Hello World from Client!</h1>
+    <p id="server-message"></p>
 
     <script>
-        function showMessage() {
-            document.getElementById('message').innerText = 'Hello, World! This is a simple web app.';
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/hello')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('server-message').textContent = 'Message from server: ' + data;
+                })
+                .catch(error => {
+                    console.error('Error fetching from server:', error);
+                    document.getElementById('server-message').textContent = 'Error fetching message from server.';
+                });
+        });
     </script>
 </body>
 </html>
